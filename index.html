@@ -3,175 +3,219 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7074510681529241" crossorigin="anonymous"></script>
 <title>Cruising Knots: how many miles has every cruise ship sailed?</title><meta name="description" content="Estimated lifetime nautical miles for 180+ cruise ships from Carnival, Royal Caribbean, Norwegian, MSC, Princess, Celebrity and more, with a live running fleet total."><link rel="canonical" href="https://cruisingknots.com/"><meta property="og:type" content="website"><meta property="og:site_name" content="Cruising Knots"><meta property="og:title" content="Cruising Knots: how many miles has every cruise ship sailed?"><meta property="og:description" content="Estimated lifetime nautical miles for 180+ cruise ships from Carnival, Royal Caribbean, Norwegian, MSC, Princess, Celebrity and more, with a live running fleet total."><meta property="og:url" content="https://cruisingknots.com/"><meta name="twitter:card" content="summary"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "Cruising Knots", "url": "https://cruisingknots.com/", "description": "Estimated lifetime nautical miles for 180+ cruise ships from Carnival, Royal Caribbean, Norwegian, MSC, Princess, Celebrity and more, with a live running fleet total."}</script>
 <meta name="claude:viewport-fit-sides" content="cover">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 <style>
-/* Layout: floating glass header, a deep-ocean hero with the odometer and a photo mosaic, soft cards, photo-card grid of every ship. */
+/* Layout: a printed ship's register. Masthead with double rule, the fleet odometer set like a ledger figure, ruled tables and square photo plates. */
 :root{
-  --bg:#F4F7FA; --surface:#FFFFFF; --ink:#0B2236; --muted:#5A6F80; --line:#E1E9EF;
-  --accent:#0A74A0; --accent-ink:#FFFFFF; --flag:#E2552F; --tint:#EAF1F6; --hullc:#17324B; --shipwhite:#FFFFFF; --shipedge:#9FB3C2;
-  --shadow:0 1px 2px rgba(10,34,54,.06),0 10px 28px rgba(10,34,54,.07); --glass:rgba(244,247,250,.78);
-  --hero1:#0A2540; --hero2:#0B5F82; --hero3:#18B0D0;
-  --display:'Sora','Segoe UI',sans-serif; --body:'Manrope',system-ui,sans-serif; --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --bg:#F1ECE1; --surface:#F8F4EA; --ink:#13233A; --muted:#5E6672; --line:#D3CAB7; --rule:#13233A;
+  --accent:#1D4E7A; --accent-ink:#F8F4EA; --flag:#C4381F; --brass:#94702A; --tint:#E8E1D1;
+  --hullc:#13233A; --shipwhite:#FBF8F1; --shipedge:#A99F8B;
+  --display:'Newsreader','Iowan Old Style','Georgia',serif; --body:'Public Sans',system-ui,-apple-system,'Segoe UI',sans-serif; --mono:'IBM Plex Mono',ui-monospace,'Consolas',monospace;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#07121A; --surface:#0D1F2D; --ink:#E7F0F6; --muted:#8FA7B8; --line:#1B3345;
-  --accent:#4CC3E8; --accent-ink:#06202B; --flag:#FF8460; --tint:#112838; --hullc:#8FB7D0; --shipwhite:#E8F1F6; --shipedge:#345266;
-  --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px rgba(0,0,0,.35); --glass:rgba(7,18,26,.78); --hero1:#06182A; --hero2:#0A4660; --hero3:#117E99; color-scheme:dark}}
+  --bg:#0E151E; --surface:#131D29; --ink:#ECE5D6; --muted:#9BA3AD; --line:#2A3644; --rule:#ECE5D6;
+  --accent:#9CC2E6; --accent-ink:#0E151E; --flag:#FF7B5E; --brass:#D6AE62; --tint:#1A2634;
+  --hullc:#C9D6E2; --shipwhite:#ECE5D6; --shipedge:#3A4756; color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#07121A; --surface:#0D1F2D; --ink:#E7F0F6; --muted:#8FA7B8; --line:#1B3345;
-  --accent:#4CC3E8; --accent-ink:#06202B; --flag:#FF8460; --tint:#112838; --hullc:#8FB7D0; --shipwhite:#E8F1F6; --shipedge:#345266;
-  --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px rgba(0,0,0,.35); --glass:rgba(7,18,26,.78); --hero1:#06182A; --hero2:#0A4660; --hero3:#117E99; color-scheme:dark}
+  --bg:#0E151E; --surface:#131D29; --ink:#ECE5D6; --muted:#9BA3AD; --line:#2A3644; --rule:#ECE5D6;
+  --accent:#9CC2E6; --accent-ink:#0E151E; --flag:#FF7B5E; --brass:#D6AE62; --tint:#1A2634;
+  --hullc:#C9D6E2; --shipwhite:#ECE5D6; --shipedge:#3A4756; color-scheme:dark}
 *{box-sizing:border-box}
-body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;
-  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 56px}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--glass);backdrop-filter:blur(14px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15.5px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:env(safe-area-inset-top,0px) 56px}
 .wrap{max-width:1160px;margin:0 auto}
-a{color:var(--accent)}
-:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:25;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:12px 0;margin-bottom:6px;background:var(--glass);backdrop-filter:blur(14px);flex-wrap:wrap}
-.brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;font-size:18px;letter-spacing:-.01em}
-.brand i{width:30px;height:30px;border-radius:10px;background:linear-gradient(135deg,var(--hero2),var(--hero3));display:grid;place-items:center}
-.brand i svg{width:18px;height:18px}
-nav a{margin-left:6px;font-size:14px;font-weight:600;color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:999px}
-nav a:hover{color:var(--ink);background:var(--tint)}
-.hero{border-radius:28px;background:radial-gradient(900px 400px at 85% -10%,var(--hero3),transparent 60%),linear-gradient(135deg,var(--hero1),var(--hero2));color:#fff;padding:clamp(22px,4vw,44px);display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:28px;align-items:center;overflow:hidden}
+a{color:var(--accent);text-underline-offset:2px}
+:focus-visible{outline:2px solid var(--flag);outline-offset:2px}
+
+/* masthead */
+.mast{padding-top:14px}
+.mast-strip{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-bottom:10px;border-bottom:1px solid var(--line)}
+.mast-strip nav{display:flex;gap:18px}
+.mast-strip nav a{color:var(--ink);text-decoration:none}
+.mast-strip nav a:hover{color:var(--flag)}
+.mast-title{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:22px 0 14px;border-bottom:3px double var(--rule)}
+.brand{font-family:var(--display);font-weight:500;font-size:clamp(46px,9vw,104px);line-height:.92;letter-spacing:-.025em;margin:0}
+.brand em{font-style:italic;font-weight:400;color:var(--flag)}
+.mast-flags{display:flex;gap:4px;padding-bottom:10px}
+.mast-flags i{width:18px;height:18px;display:block}
+
+/* odometer block */
+.hero{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:clamp(20px,4vw,56px);padding:28px 0 6px;align-items:start}
 @media (max-width:860px){.hero{grid-template-columns:1fr}}
-.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;opacity:.78}
-.odo{font-family:var(--display);font-weight:700;font-size:clamp(38px,7.4vw,78px);line-height:1.05;letter-spacing:-.03em;font-variant-numeric:tabular-nums;margin:10px 0 6px;word-break:break-all}
-.odo small{font-size:.28em;opacity:.7;letter-spacing:.1em;margin-left:.5em;font-weight:600}
-.hero p.sub{max-width:54ch;opacity:.86;margin:6px 0 0}
-.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:22px}
-.fact{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:12px 14px;backdrop-filter:blur(6px)}
-.fact b{display:block;font-family:var(--display);font-size:22px;font-weight:600;line-height:1.15;font-variant-numeric:tabular-nums}
-.fact span{font-size:12.5px;opacity:.8;line-height:1.3;display:block;margin-top:2px}
-.mosaic{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;transform:rotate(2deg)}
-.mosaic img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:16px;box-shadow:0 12px 30px rgba(0,0,0,.35);display:block}
-.mosaic img:nth-child(2n){transform:translateY(18px)}
-@media (max-width:860px){.mosaic{transform:none;grid-template-columns:repeat(3,1fr)}.mosaic img:nth-child(n+4){display:none}.mosaic img:nth-child(2n){transform:none}.mosaic img{aspect-ratio:4/3}}
-.didyou{display:flex;gap:14px;align-items:center;justify-content:space-between;background:var(--surface);border-radius:18px;padding:16px 18px;margin-top:16px;box-shadow:var(--shadow)}
-.didyou .k{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--flag);font-weight:500}
-.didyou p{margin:2px 0 0;font-size:16.5px;max-width:74ch;font-weight:500}
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.odo{font-family:var(--mono);font-weight:500;font-size:clamp(34px,6.6vw,74px);line-height:1;letter-spacing:-.04em;font-variant-numeric:tabular-nums;margin:12px 0 14px;padding:14px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);word-break:break-all}
+.odo small{font-family:var(--display);font-style:italic;font-size:.34em;letter-spacing:0;margin-left:.4em;color:var(--flag);font-weight:400}
+.hero p.sub{max-width:52ch;margin:0;font-family:var(--display);font-size:clamp(18px,1.8vw,21px);line-height:1.45}
+.facts{display:grid;grid-template-columns:1fr;border-top:1px solid var(--rule)}
+.fact{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:baseline;gap:4px 16px;padding:11px 0;border-bottom:1px solid var(--line)}
+.fact b{order:2;font-family:var(--mono);font-size:19px;font-weight:500;font-variant-numeric:tabular-nums;text-align:right}
+.fact span{order:1;font-size:14px;color:var(--muted);line-height:1.35}
+.facts-h{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+.mosaic{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px;margin-top:26px}
+.mosaic img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;filter:saturate(.85)}
+@media (max-width:700px){.mosaic{grid-template-columns:repeat(3,minmax(0,1fr))}.mosaic img:nth-child(n+4){display:none}}
+
+.didyou{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:16px;align-items:center;margin-top:28px;padding:16px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.didyou .k{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--flag);font-weight:600;writing-mode:horizontal-tb}
+.didyou p{margin:0;font-family:var(--display);font-size:clamp(17px,1.7vw,20px);line-height:1.4;max-width:70ch}
 .didyou .src{font-size:12.5px;color:var(--muted);white-space:nowrap}
-.didyou button{font:inherit;font-weight:600;flex:none;background:var(--tint);color:var(--accent);border:0;border-radius:999px;padding:10px 16px;cursor:pointer;min-height:42px}
-.didyou button:hover{background:var(--accent);color:var(--accent-ink)}
-@media (max-width:560px){.didyou{flex-direction:column;align-items:stretch}}
-h2{font-family:var(--display);font-size:clamp(22px,3vw,28px);font-weight:700;letter-spacing:-.02em;margin:44px 0 14px}
-.lines{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
-.line{all:unset;box-sizing:border-box;cursor:pointer;background:var(--surface);border-radius:16px;padding:16px 18px;display:grid;gap:3px;box-shadow:var(--shadow);border:1.5px solid transparent}
-.line:hover{border-color:var(--line)}
-.line[aria-pressed=true]{border-color:var(--accent)}
-.line:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.line .n{font-weight:700;display:flex;align-items:center;gap:8px}
-.line .n::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--dot,var(--accent))}
-.line .m{font-family:var(--display);font-size:22px;font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
-.line .c{font-size:13px;color:var(--muted)}
-.line .track{height:6px;background:var(--tint);border-radius:3px;margin-top:8px;overflow:hidden}
-.line .fillb{display:block;height:100%;border-radius:3px}
-.charts{display:grid;grid-template-columns:3fr 2fr;gap:14px;margin-top:22px}
+.didyou button{font:inherit;font-size:14px;font-weight:600;flex:none;background:none;color:var(--ink);border:1px solid var(--rule);border-radius:0;padding:9px 14px;cursor:pointer;min-height:42px}
+.didyou button:hover{background:var(--ink);color:var(--bg)}
+@media (max-width:640px){.didyou{grid-template-columns:1fr}.didyou button{justify-self:start}}
+
+h2{font-family:var(--display);font-size:clamp(28px,3.6vw,40px);font-weight:500;letter-spacing:-.015em;line-height:1.05;margin:56px 0 14px;padding-bottom:10px;border-bottom:1px solid var(--rule);display:flex;align-items:baseline;gap:14px}
+h2 .no{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--flag);font-weight:500}
+
+/* charts */
+.charts{display:grid;grid-template-columns:3fr 2fr;gap:clamp(18px,3vw,36px);margin-top:40px}
 @media (max-width:860px){.charts{grid-template-columns:1fr}}
-.panel{background:var(--surface);border-radius:20px;padding:18px 20px;min-width:0;box-shadow:var(--shadow)}
-.panel h3{font-family:var(--display);font-size:17px;font-weight:700;letter-spacing:-.01em;margin:0 0 2px}
-.panel .cap{font-size:13px;color:var(--muted);margin:0 0 10px}
+.panel{min-width:0;border-top:1px solid var(--rule);padding-top:14px}
+.panel h3{font-family:var(--display);font-size:22px;font-weight:500;margin:0 0 2px}
+.panel .cap{font-size:13.5px;color:var(--muted);margin:0 0 12px}
 .area{display:block;width:100%;height:auto}
-.area text{font-family:var(--body);font-size:9px;fill:var(--muted)}
+.area text{font-family:var(--mono);font-size:8.5px;fill:var(--muted)}
 .area .grid{stroke:var(--line);stroke-width:.6}
-.area .fill{fill:var(--accent);fill-opacity:.16}.area .ln{fill:none;stroke:var(--accent);stroke-width:2;stroke-linejoin:round}
+.area .fill{fill:var(--accent);fill-opacity:.12}.area .ln{fill:none;stroke:var(--ink);stroke-width:1.6;stroke-linejoin:round}
 .area .pt{fill:var(--flag)}
-.bars{display:grid;gap:9px}
+.bars{display:grid;gap:10px}
 .bar{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:3px 10px;cursor:pointer;background:none;border:0;padding:0;text-align:left;color:inherit;font:inherit}
-.bar .nm2{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600;font-size:13.5px}
-.bar .v{font-family:var(--mono);font-size:12px;color:var(--muted)}
-.bar .track{grid-column:1/-1;height:8px;background:var(--tint);border-radius:4px;overflow:hidden}
-.bar .fillb{display:block;height:100%;border-radius:4px}
+.bar:hover .nm2{color:var(--flag)}
+.bar .nm2{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600;font-size:14px}
+.bar .v{font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+.bar .track{grid-column:1/-1;height:5px;background:var(--tint);overflow:hidden}
+.bar .fillb{display:block;height:100%}
+
+/* cruise lines as a ruled ledger */
+.lines{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));border-left:1px solid var(--line)}
+.line{all:unset;box-sizing:border-box;cursor:pointer;padding:14px 16px 16px;display:grid;gap:2px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.line:hover{background:var(--surface)}
+.line[aria-pressed=true]{background:var(--surface);box-shadow:inset 0 3px 0 var(--dot)}
+.line:focus-visible{outline:2px solid var(--flag);outline-offset:-2px}
+.line .n{font-weight:600;font-size:14px;display:flex;align-items:center;gap:8px}
+.line .n::before{content:"";width:9px;height:9px;background:var(--dot,var(--accent))}
+.line .m{font-family:var(--mono);font-size:21px;font-weight:500;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.line .c{font-size:13px;color:var(--muted)}
+.line .track{height:3px;background:var(--tint);margin-top:8px;overflow:hidden}
+.line .fillb{display:block;height:100%}
+
+/* search + toggles */
 .tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:6px 0 12px}
-.tools input{font:inherit;color:var(--ink);background:var(--surface);border:1.5px solid var(--line);border-radius:999px;padding:10px 16px;min-height:44px;flex:1 1 220px;min-width:0;box-shadow:var(--shadow)}
-.tools input:focus{border-color:var(--accent);outline:none}
-.seg{display:inline-flex;background:var(--tint);border-radius:999px;padding:4px;gap:2px}
-.seg button{font:inherit;font-weight:600;font-size:14px;background:none;color:var(--muted);border:0;padding:8px 14px;min-height:38px;cursor:pointer;border-radius:999px}
-.seg button[aria-pressed=true]{background:var(--surface);color:var(--ink);box-shadow:0 1px 3px rgba(10,34,54,.14)}
-.count{font-size:13px;color:var(--muted);margin:0 0 12px}
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(235px,1fr));gap:16px}
-.card{all:unset;box-sizing:border-box;cursor:pointer;background:var(--surface);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;border:1.5px solid transparent;transition:transform .15s,border-color .15s}
-.card:hover{transform:translateY(-3px);border-color:var(--line)}
-.card:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.card .ph{position:relative;background:var(--tint)}
-.card .ph .photo{border-radius:0;aspect-ratio:16/10}
-.card .ph svg.ship{padding:14px 12px 4px;aspect-ratio:16/10}
-.card .chip{position:absolute;left:10px;top:10px;font-size:11px;font-weight:700;color:#fff;padding:4px 9px;border-radius:999px;background:var(--dot);letter-spacing:.02em}
-.card .st{position:absolute;right:10px;top:10px;font-size:11px;font-weight:700;padding:4px 9px;border-radius:999px;background:rgba(255,255,255,.92);color:#0B2236}
-.card .st.act{background:#1FA76A;color:#fff}
-.card .bd{padding:12px 14px 14px;display:grid;gap:2px}
-.card .t{font-family:var(--display);font-weight:600;font-size:16.5px;letter-spacing:-.01em;line-height:1.25}
-.card .s{font-size:12.5px;color:var(--muted)}
-.card .mi{font-family:var(--mono);font-size:15px;font-weight:500;margin-top:8px}
+.tools input{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--rule);border-radius:0;padding:10px 14px;min-height:44px;flex:1 1 220px;min-width:0}
+.tools input::placeholder{color:var(--muted)}
+.tools input:focus{outline:2px solid var(--flag);outline-offset:-1px}
+.seg{display:inline-flex;border:1px solid var(--rule)}
+.seg button{font:inherit;font-weight:600;font-size:14px;background:none;color:var(--ink);border:0;padding:8px 14px;min-height:42px;cursor:pointer;border-radius:0}
+.seg button+button{border-left:1px solid var(--rule)}
+.seg button[aria-pressed=true]{background:var(--ink);color:var(--bg)}
+.count{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0 0 12px}
+
+/* ship plates */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:26px 18px}
+.card{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;border-top:1px solid var(--rule)}
+.card:hover .t{color:var(--flag)}
+.card:hover .ph{opacity:.92}
+.card:focus-visible{outline:2px solid var(--flag);outline-offset:3px}
+.card .ph{position:relative;background:var(--tint);margin-top:10px}
+.card .ph .photo{border-radius:0;aspect-ratio:3/2}
+.card .ph svg.ship{padding:14px 12px 4px;aspect-ratio:3/2}
+.card .chip{position:absolute;left:0;bottom:0;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#fff;padding:4px 8px;background:var(--dot)}
+.card .st{position:absolute;right:0;top:0;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;padding:4px 8px;background:var(--bg);color:var(--ink)}
+.card .st.act{background:var(--ink);color:var(--bg)}
+.card .bd{padding:10px 0 0;display:grid;gap:2px}
+.card .t{font-family:var(--display);font-weight:500;font-size:21px;line-height:1.15;transition:color .15s}
+.card .s{font-size:13px;color:var(--muted)}
+.card .mi{font-family:var(--mono);font-size:15.5px;font-weight:500;margin-top:6px}
 .card .mi small{color:var(--muted);font-size:11px;margin-left:4px;font-family:var(--body)}
-.tablewrap{overflow-x:auto;background:var(--surface);border-radius:18px;box-shadow:var(--shadow)}
+
+.tablewrap{overflow-x:auto;border-top:1px solid var(--rule)}
 table{border-collapse:collapse;width:100%;min-width:720px}
-th,td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
-th{font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700;position:sticky;top:0;background:var(--surface);cursor:pointer;user-select:none}
-th[aria-sort]{color:var(--ink)}
+th,td{padding:10px 14px 10px 0;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
+th{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:500;position:sticky;top:0;background:var(--bg);cursor:pointer;user-select:none}
+th[aria-sort]{color:var(--flag)}
 td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
 td.miles{font-family:var(--mono);font-size:14px}
 tbody tr{cursor:pointer}
-tbody tr:hover{background:var(--tint)}
-tbody tr:last-child td{border-bottom:0}
-.nm{font-weight:700}
-.pill{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 9px;border-radius:999px;background:var(--tint);color:var(--muted)}
-.pill.act{background:#1FA76A22;color:#1FA76A}
-.more{display:block;margin:18px auto 0;font:inherit;font-weight:600;background:var(--surface);color:var(--ink);border:0;border-radius:999px;padding:12px 24px;cursor:pointer;box-shadow:var(--shadow)}
+tbody tr:hover{background:var(--surface)}
+.nm{font-weight:600}
+.pill{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border:1px solid var(--line);color:var(--muted)}
+.pill.act{border-color:var(--ink);color:var(--ink)}
+.more{display:block;margin:28px auto 0;font:inherit;font-weight:600;background:none;color:var(--ink);border:1px solid var(--rule);border-radius:0;padding:12px 26px;cursor:pointer}
+.more:hover{background:var(--ink);color:var(--bg)}
 .ship{display:block;width:100%;height:auto}
 .ship .hull{fill:var(--hullc)}.ship .sup{fill:var(--shipwhite);stroke:var(--shipedge);stroke-width:.5}.ship .win{stroke:var(--hullc);stroke-opacity:.5;stroke-width:1;stroke-dasharray:1.4 1.2;fill:none}.ship .wave{fill:none;stroke:var(--accent);stroke-opacity:.55;stroke-width:1.2}
 td.nm .cell{display:flex;align-items:center;gap:12px}td.nm .thumb{width:92px;flex:none}
-.photo{display:block;width:100%;aspect-ratio:13/8;object-fit:cover;border-radius:8px;background:var(--tint)}
+.photo{display:block;width:100%;aspect-ratio:13/8;object-fit:cover;background:var(--tint)}
 .thumb .photo{aspect-ratio:92/56}
+
+/* ship sheet */
 .sheet-bg[hidden]{display:none}
-.sheet-bg{position:fixed;inset:0;background:rgba(4,12,18,.6);backdrop-filter:blur(4px);display:flex;justify-content:center;align-items:flex-end;z-index:40;padding:0}
-.sheet{background:var(--surface);color:var(--ink);width:min(680px,100%);max-height:92vh;overflow:auto;border-radius:24px 24px 0 0;padding:22px max(20px,env(safe-area-inset-left,0px)) calc(24px + env(safe-area-inset-bottom,0px))}
-@media (min-width:720px){.sheet-bg{align-items:center}.sheet{border-radius:24px}}
-.sheet h3{font-family:var(--display);font-size:30px;font-weight:700;letter-spacing:-.02em;line-height:1.1;margin:4px 0 2px}
-.sheet .big{font-family:var(--display);font-size:clamp(34px,8vw,50px);font-weight:700;letter-spacing:-.03em;color:var(--accent);font-variant-numeric:tabular-nums;line-height:1.1;margin-top:16px}
-.sheet .photo{aspect-ratio:13/8;max-height:300px;margin-top:10px;border-radius:16px}
-.sheet .hero-ship{background:var(--tint);border-radius:16px;padding:0;margin:10px 0 0;overflow:hidden}.sheet .hero-ship svg{padding:8px 10px 2px}
-.close{float:right;font:inherit;font-weight:600;background:var(--tint);border:0;color:var(--ink);border-radius:999px;padding:8px 16px;cursor:pointer}
+.sheet-bg{position:fixed;inset:0;background:rgba(14,21,30,.55);display:flex;justify-content:center;align-items:flex-end;z-index:40;padding:0}
+.sheet{background:var(--bg);color:var(--ink);width:min(700px,100%);max-height:92vh;overflow:auto;border-top:3px double var(--rule);padding:22px max(20px,env(safe-area-inset-left,0px)) calc(24px + env(safe-area-inset-bottom,0px))}
+@media (min-width:720px){.sheet-bg{align-items:center}.sheet{border:1px solid var(--rule);box-shadow:8px 8px 0 rgba(19,35,58,.18)}}
+.sheet h3{font-family:var(--display);font-size:clamp(32px,6vw,44px);font-weight:500;letter-spacing:-.02em;line-height:1.05;margin:6px 0 4px}
+.sheet .big{font-family:var(--mono);font-size:clamp(30px,7vw,46px);font-weight:500;letter-spacing:-.04em;font-variant-numeric:tabular-nums;line-height:1.1;margin-top:18px;padding:10px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.sheet .photo{aspect-ratio:3/2;max-height:320px;margin-top:10px}
+.sheet .hero-ship{background:var(--tint);padding:0;margin:12px 0 0;overflow:hidden}.sheet .hero-ship svg{padding:8px 10px 2px}
+.close{float:right;font:inherit;font-size:14px;font-weight:600;background:none;border:1px solid var(--rule);color:var(--ink);border-radius:0;padding:7px 14px;cursor:pointer}
+.close:hover{background:var(--ink);color:var(--bg)}
 .credit{font-size:12px;color:var(--muted);margin:6px 0 0}
-dl{display:grid;grid-template-columns:max-content 1fr;gap:6px 18px;margin:16px 0}
-dt{color:var(--muted)}dd{margin:0;font-variant-numeric:tabular-nums}
-.cmp{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:8px 0 14px}
-.cmp div{background:var(--tint);border-radius:14px;padding:12px 14px}
-.cmp b{display:block;font-family:var(--display);font-size:24px;font-weight:600}
+dl{display:grid;grid-template-columns:max-content 1fr;gap:0;margin:16px 0;border-top:1px solid var(--line)}
+dt,dd{padding:8px 0;border-bottom:1px solid var(--line)}
+dt{color:var(--muted);padding-right:24px;font-size:14px}dd{margin:0;font-variant-numeric:tabular-nums}
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:8px 0 14px;border:1px solid var(--line)}
+.cmp div{padding:12px 14px}
+.cmp div+div{border-left:1px solid var(--line)}
+.cmp b{display:block;font-family:var(--mono);font-size:22px;font-weight:500}
 .cmp span{font-size:13px;color:var(--muted)}
 .btns{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
-.btn{display:inline-block;background:var(--accent);color:var(--accent-ink);text-decoration:none;font-weight:700;border-radius:999px;padding:11px 18px}
-.btn.alt{background:none;color:var(--accent);border:1.5px solid var(--accent)}
+.btn{display:inline-block;background:var(--ink);color:var(--bg);text-decoration:none;font-weight:600;border:1px solid var(--ink);padding:10px 16px}
+.btn:hover{background:var(--flag);border-color:var(--flag);color:#fff}
+.btn.alt{background:none;color:var(--ink)}
+.btn.alt:hover{background:var(--ink);color:var(--bg)}
 .note{font-size:13px;color:var(--muted)}
-.method{background:var(--surface);border-radius:20px;padding:6px 24px 18px;box-shadow:var(--shadow)}
-.method h3{font-family:var(--display);font-size:17px;margin:18px 0 4px}
-.method p,.method li{max-width:72ch}
-table.rates{min-width:0;width:auto;margin:8px 0}
-.rates td,.rates th{padding:6px 14px 6px 0;border:0;cursor:default;position:static;white-space:normal}
-footer{margin-top:36px;color:var(--muted);font-size:13px;max-width:78ch}
+
+/* method */
+.method{columns:2 340px;column-gap:44px}
+.method h3{font-family:var(--display);font-size:21px;font-weight:600;margin:0 0 4px;break-after:avoid}
+.method p{margin:0 0 18px;max-width:68ch}
+.method table.rates{break-inside:avoid}
+table.rates{min-width:0;width:100%;margin:4px 0 18px;border-top:1px solid var(--rule)}
+.rates td,.rates th{padding:6px 14px 6px 0;cursor:default;position:static;white-space:normal;background:none}
+.rates td:last-child{font-family:var(--mono);text-align:right}
+nav[aria-label="All ships"]{max-width:none!important;padding:0!important;margin-top:56px;font-size:14px!important;line-height:1.7}
+nav[aria-label="All ships"] h2{font-size:clamp(24px,3vw,32px)!important}
+nav[aria-label="All ships"] p{margin:0;padding:10px 0;border-bottom:1px solid var(--line);color:var(--muted)}
+nav[aria-label="All ships"] p a{color:var(--ink);text-decoration:none}nav[aria-label="All ships"] p a:hover{color:var(--flag);text-decoration:underline}
+nav[aria-label="All ships"] p a strong{color:var(--flag);font-weight:600}
+footer{margin-top:48px;padding-top:14px;border-top:3px double var(--rule);color:var(--muted);font-size:13px;display:grid;gap:8px}
+footer p{margin:0;max-width:80ch}
+footer nav{display:flex;gap:18px;font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 <style>[hidden]{display:none!important}</style></head><body>
 <div class="wrap">
-<header class="top"><div class="brand"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l2 3h14l2-3z"/><path d="M6 17V11h12v6"/><path d="M9 11V7h6v4"/></svg></i>Cruising Knots</div><nav><a href="#ships">Ships</a><a href="#method">How we estimate</a></nav></header>
+<header class="mast">
+<div class="mast-strip"><span>A register of cruise ship distances · updated as you read</span><nav aria-label="Sections"><a href="#fleet">Lines</a><a href="#ships">Ships</a><a href="#method">Method</a><a href="/about.html">About</a></nav></div>
+<div class="mast-title"><h1 class="brand">Cruising <em>Knots</em></h1>
+<div class="mast-flags" aria-hidden="true"><i><svg viewBox="0 0 18 18"><rect width="18" height="18" fill="#C4381F"/><rect x="0" y="0" width="9" height="9" fill="#F8F4EA"/><rect x="9" y="9" width="9" height="9" fill="#F8F4EA"/></svg></i><i><svg viewBox="0 0 18 18"><rect width="18" height="18" fill="#1D4E7A"/><rect x="5" y="5" width="8" height="8" fill="#F8F4EA"/></svg></i><i><svg viewBox="0 0 18 18"><rect width="18" height="18" fill="#E2B13C"/><path d="M0 0L18 18M18 0L0 18" stroke="#13233A" stroke-width="3"/></svg></i></div></div>
+</header>
 <section class="hero">
   <div>
-    <h1 class="eyebrow" style="margin:0;font-weight:inherit;line-height:inherit">Estimated nautical miles sailed since each ship entered service</h1>
+    <div class="eyebrow">Combined nautical miles · every ship listed · since its first passenger voyage</div>
     <div class="odo" id="odo" aria-live="off">0<small>nm</small></div>
-    <p class="sub">Every cruise ship in the fleets below, from its first passenger voyage to today or to its last day in service. The count adds up on its own as the ships keep sailing.</p>
-    <div class="facts" id="facts"></div>
+    <p class="sub">Every ship in the fleets below, counted from its first passenger voyage to today, or to its last day in service. The figure keeps climbing while the sailing fleet is at sea.</p>
   </div>
-  <div class="mosaic" id="mosaic" aria-hidden="true"></div>
+  <div><p class="facts-h">By the numbers</p><div class="facts" id="facts"></div></div>
 </section>
-<div class="didyou"><div><div class="k">Did you know</div><p id="fact" aria-live="polite"></p></div><button id="nextfact" type="button">Another fact</button></div>
+<div class="mosaic" id="mosaic" aria-hidden="true"></div>
+<div class="didyou"><div class="k">Log note</div><p id="fact" aria-live="polite"></p><button id="nextfact" type="button">Another note</button></div>
 <div class="charts">
 <div class="panel"><h3>Miles sailed over time</h3><p class="cap">Running total for every ship listed, by year. The flat stretch is the 2020 to 2021 shutdown.</p><div id="area"></div></div>
 <div class="panel"><h3>Longest careers</h3><p class="cap">The ten ships with the most estimated miles. Tap one to open it.</p><div class="bars" id="top"></div></div>
 </div>
-<h2>Cruise lines</h2>
+<h2 id="fleet"><span class="no">I.</span>Cruise lines</h2>
 <div class="lines" id="lines"></div>
-<h2 id="ships">Every ship</h2>
+<h2 id="ships"><span class="no">II.</span>Every ship</h2>
 <div class="tools">
   <input id="q" type="search" placeholder="Search a ship, line or class" aria-label="Search ships">
   <div class="seg" role="group" aria-label="Status"><button data-s="all" aria-pressed="true">All</button><button data-s="act" aria-pressed="false">Sailing</button><button data-s="ret" aria-pressed="false">Retired</button></div>
@@ -183,7 +227,7 @@ footer{margin-top:36px;color:var(--muted);font-size:13px;max-width:78ch}
 <thead><tr><th data-k="name">Ship</th><th data-k="line">Line</th><th data-k="start" class="num">In service</th><th data-k="gt" class="num">Gross tons</th><th data-k="miles" class="num" aria-sort="descending">Est. miles</th><th data-k="status">Status</th></tr></thead>
 <tbody id="rows"></tbody></table></div>
 <button class="more" id="more" hidden>Show more ships</button>
-<h2 id="method">How we estimate</h2>
+<h2 id="method"><span class="no">III.</span>How we estimate</h2>
 <div class="method" id="methodbox">
 <h3>Why an estimate</h3>
 <p>Cruise lines do not publish a lifetime distance for each ship, so no source lists the true number. Each total here is calculated from the ship's in-service dates and the kind of trips it usually sails.</p>
@@ -200,7 +244,7 @@ footer{margin-top:36px;color:var(--muted);font-size:13px;max-width:78ch}
 <h3>Data</h3>
 <p>Fleet lists, entry years and tonnage come from public fleet records and may differ by a year from a line's own history. Ships that moved to another line are counted once, from their first day in service, and the note on their page says so.</p>
 </div>
-<nav aria-label="All ships" style="max-width:1100px;margin:0 auto;padding:0 16px 24px;font-size:.9rem"><h2 style="font-size:1rem">Ship pages by cruise line</h2><p><a href="/carnival-ships.html"><strong>Carnival Cruise Line</strong></a>: <a href="/carnival-elation.html">Carnival Elation</a> &middot; <a href="/carnival-paradise.html">Carnival Paradise</a> &middot; <a href="/carnival-sunshine.html">Carnival Sunshine</a> &middot; <a href="/carnival-sunrise.html">Carnival Sunrise</a> &middot; <a href="/carnival-radiance.html">Carnival Radiance</a> &middot; <a href="/carnival-spirit.html">Carnival Spirit</a> &middot; <a href="/carnival-pride.html">Carnival Pride</a> &middot; <a href="/carnival-legend.html">Carnival Legend</a> &middot; <a href="/carnival-miracle.html">Carnival Miracle</a> &middot; <a href="/carnival-conquest.html">Carnival Conquest</a> &middot; <a href="/carnival-glory.html">Carnival Glory</a> &middot; <a href="/carnival-valor.html">Carnival Valor</a> &middot; <a href="/carnival-liberty.html">Carnival Liberty</a> &middot; <a href="/carnival-freedom.html">Carnival Freedom</a> &middot; <a href="/carnival-splendor.html">Carnival Splendor</a> &middot; <a href="/carnival-dream.html">Carnival Dream</a> &middot; <a href="/carnival-magic.html">Carnival Magic</a> &middot; <a href="/carnival-breeze.html">Carnival Breeze</a> &middot; <a href="/carnival-vista.html">Carnival Vista</a> &middot; <a href="/carnival-horizon.html">Carnival Horizon</a> &middot; <a href="/carnival-panorama.html">Carnival Panorama</a> &middot; <a href="/carnival-venezia.html">Carnival Venezia</a> &middot; <a href="/carnival-firenze.html">Carnival Firenze</a> &middot; <a href="/mardi-gras.html">Mardi Gras</a> &middot; <a href="/carnival-celebration.html">Carnival Celebration</a> &middot; <a href="/carnival-jubilee.html">Carnival Jubilee</a> &middot; <a href="/carnival-luminosa.html">Carnival Luminosa</a> &middot; <a href="/carnival-adventure.html">Carnival Adventure</a> &middot; <a href="/carnival-encounter.html">Carnival Encounter</a></p><p><a href="/royal-caribbean-ships.html"><strong>Royal Caribbean</strong></a>: <a href="/grandeur-of-the-seas.html">Grandeur of the Seas</a> &middot; <a href="/enchantment-of-the-seas.html">Enchantment of the Seas</a> &middot; <a href="/rhapsody-of-the-seas.html">Rhapsody of the Seas</a> &middot; <a href="/vision-of-the-seas.html">Vision of the Seas</a> &middot; <a href="/voyager-of-the-seas.html">Voyager of the Seas</a> &middot; <a href="/explorer-of-the-seas.html">Explorer of the Seas</a> &middot; <a href="/adventure-of-the-seas.html">Adventure of the Seas</a> &middot; <a href="/navigator-of-the-seas.html">Navigator of the Seas</a> &middot; <a href="/mariner-of-the-seas.html">Mariner of the Seas</a> &middot; <a href="/radiance-of-the-seas.html">Radiance of the Seas</a> &middot; <a href="/brilliance-of-the-seas.html">Brilliance of the Seas</a> &middot; <a href="/serenade-of-the-seas.html">Serenade of the Seas</a> &middot; <a href="/jewel-of-the-seas.html">Jewel of the Seas</a> &middot; <a href="/freedom-of-the-seas.html">Freedom of the Seas</a> &middot; <a href="/liberty-of-the-seas.html">Liberty of the Seas</a> &middot; <a href="/independence-of-the-seas.html">Independence of the Seas</a> &middot; <a href="/oasis-of-the-seas.html">Oasis of the Seas</a> &middot; <a href="/allure-of-the-seas.html">Allure of the Seas</a> &middot; <a href="/harmony-of-the-seas.html">Harmony of the Seas</a> &middot; <a href="/symphony-of-the-seas.html">Symphony of the Seas</a> &middot; <a href="/wonder-of-the-seas.html">Wonder of the Seas</a> &middot; <a href="/utopia-of-the-seas.html">Utopia of the Seas</a> &middot; <a href="/quantum-of-the-seas.html">Quantum of the Seas</a> &middot; <a href="/anthem-of-the-seas.html">Anthem of the Seas</a> &middot; <a href="/ovation-of-the-seas.html">Ovation of the Seas</a> &middot; <a href="/spectrum-of-the-seas.html">Spectrum of the Seas</a> &middot; <a href="/odyssey-of-the-seas.html">Odyssey of the Seas</a> &middot; <a href="/icon-of-the-seas.html">Icon of the Seas</a> &middot; <a href="/star-of-the-seas.html">Star of the Seas</a> &middot; <a href="/legend-of-the-seas-2026.html">Legend of the Seas (2026)</a></p><p><a href="/norwegian-ships.html"><strong>Norwegian Cruise Line</strong></a>: <a href="/norwegian-spirit.html">Norwegian Spirit</a> &middot; <a href="/norwegian-sun.html">Norwegian Sun</a> &middot; <a href="/norwegian-star.html">Norwegian Star</a> &middot; <a href="/norwegian-dawn.html">Norwegian Dawn</a> &middot; <a href="/pride-of-america.html">Pride of America</a> &middot; <a href="/norwegian-jewel.html">Norwegian Jewel</a> &middot; <a href="/norwegian-jade.html">Norwegian Jade</a> &middot; <a href="/norwegian-pearl.html">Norwegian Pearl</a> &middot; <a href="/norwegian-gem.html">Norwegian Gem</a> &middot; <a href="/norwegian-epic.html">Norwegian Epic</a> &middot; <a href="/norwegian-breakaway.html">Norwegian Breakaway</a> &middot; <a href="/norwegian-getaway.html">Norwegian Getaway</a> &middot; <a href="/norwegian-escape.html">Norwegian Escape</a> &middot; <a href="/norwegian-joy.html">Norwegian Joy</a> &middot; <a href="/norwegian-bliss.html">Norwegian Bliss</a> &middot; <a href="/norwegian-encore.html">Norwegian Encore</a> &middot; <a href="/norwegian-prima.html">Norwegian Prima</a> &middot; <a href="/norwegian-viva.html">Norwegian Viva</a> &middot; <a href="/norwegian-aqua.html">Norwegian Aqua</a> &middot; <a href="/norwegian-luna.html">Norwegian Luna</a></p><p><a href="/msc-cruises-ships.html"><strong>MSC Cruises</strong></a>: <a href="/msc-lirica.html">MSC Lirica</a> &middot; <a href="/msc-opera.html">MSC Opera</a> &middot; <a href="/msc-armonia.html">MSC Armonia</a> &middot; <a href="/msc-sinfonia.html">MSC Sinfonia</a> &middot; <a href="/msc-musica.html">MSC Musica</a> &middot; <a href="/msc-orchestra.html">MSC Orchestra</a> &middot; <a href="/msc-poesia.html">MSC Poesia</a> &middot; <a href="/msc-magnifica.html">MSC Magnifica</a> &middot; <a href="/msc-fantasia.html">MSC Fantasia</a> &middot; <a href="/msc-splendida.html">MSC Splendida</a> &middot; <a href="/msc-divina.html">MSC Divina</a> &middot; <a href="/msc-preziosa.html">MSC Preziosa</a> &middot; <a href="/msc-meraviglia.html">MSC Meraviglia</a> &middot; <a href="/msc-seaside.html">MSC Seaside</a> &middot; <a href="/msc-seaview.html">MSC Seaview</a> &middot; <a href="/msc-bellissima.html">MSC Bellissima</a> &middot; <a href="/msc-grandiosa.html">MSC Grandiosa</a> &middot; <a href="/msc-seashore.html">MSC Seashore</a> &middot; <a href="/msc-virtuosa.html">MSC Virtuosa</a> &middot; <a href="/msc-seascape.html">MSC Seascape</a> &middot; <a href="/msc-world-europa.html">MSC World Europa</a> &middot; <a href="/msc-euribia.html">MSC Euribia</a> &middot; <a href="/msc-world-america.html">MSC World America</a></p><p><a href="/princess-ships.html"><strong>Princess Cruises</strong></a>: <a href="/grand-princess.html">Grand Princess</a> &middot; <a href="/coral-princess.html">Coral Princess</a> &middot; <a href="/island-princess.html">Island Princess</a> &middot; <a href="/diamond-princess.html">Diamond Princess</a> &middot; <a href="/sapphire-princess.html">Sapphire Princess</a> &middot; <a href="/caribbean-princess.html">Caribbean Princess</a> &middot; <a href="/crown-princess.html">Crown Princess</a> &middot; <a href="/emerald-princess.html">Emerald Princess</a> &middot; <a href="/ruby-princess.html">Ruby Princess</a> &middot; <a href="/royal-princess.html">Royal Princess</a> &middot; <a href="/regal-princess.html">Regal Princess</a> &middot; <a href="/majestic-princess.html">Majestic Princess</a> &middot; <a href="/sky-princess.html">Sky Princess</a> &middot; <a href="/enchanted-princess.html">Enchanted Princess</a> &middot; <a href="/discovery-princess.html">Discovery Princess</a> &middot; <a href="/sun-princess.html">Sun Princess</a> &middot; <a href="/star-princess.html">Star Princess</a></p><p><a href="/celebrity-ships.html"><strong>Celebrity Cruises</strong></a>: <a href="/celebrity-millennium.html">Celebrity Millennium</a> &middot; <a href="/celebrity-infinity.html">Celebrity Infinity</a> &middot; <a href="/celebrity-summit.html">Celebrity Summit</a> &middot; <a href="/celebrity-constellation.html">Celebrity Constellation</a> &middot; <a href="/celebrity-solstice.html">Celebrity Solstice</a> &middot; <a href="/celebrity-equinox.html">Celebrity Equinox</a> &middot; <a href="/celebrity-eclipse.html">Celebrity Eclipse</a> &middot; <a href="/celebrity-silhouette.html">Celebrity Silhouette</a> &middot; <a href="/celebrity-reflection.html">Celebrity Reflection</a> &middot; <a href="/celebrity-edge.html">Celebrity Edge</a> &middot; <a href="/celebrity-flora.html">Celebrity Flora</a> &middot; <a href="/celebrity-apex.html">Celebrity Apex</a> &middot; <a href="/celebrity-beyond.html">Celebrity Beyond</a> &middot; <a href="/celebrity-ascent.html">Celebrity Ascent</a> &middot; <a href="/celebrity-xcel.html">Celebrity Xcel</a></p><p><a href="/holland-america-ships.html"><strong>Holland America Line</strong></a>: <a href="/volendam.html">Volendam</a> &middot; <a href="/zaandam.html">Zaandam</a> &middot; <a href="/zuiderdam.html">Zuiderdam</a> &middot; <a href="/oosterdam.html">Oosterdam</a> &middot; <a href="/westerdam.html">Westerdam</a> &middot; <a href="/noordam.html">Noordam</a> &middot; <a href="/eurodam.html">Eurodam</a> &middot; <a href="/nieuw-amsterdam.html">Nieuw Amsterdam</a> &middot; <a href="/koningsdam.html">Koningsdam</a> &middot; <a href="/nieuw-statendam.html">Nieuw Statendam</a> &middot; <a href="/rotterdam.html">Rotterdam</a></p><p><a href="/disney-ships.html"><strong>Disney Cruise Line</strong></a>: <a href="/disney-magic.html">Disney Magic</a> &middot; <a href="/disney-wonder.html">Disney Wonder</a> &middot; <a href="/disney-dream.html">Disney Dream</a> &middot; <a href="/disney-fantasy.html">Disney Fantasy</a> &middot; <a href="/disney-wish.html">Disney Wish</a> &middot; <a href="/disney-treasure.html">Disney Treasure</a> &middot; <a href="/disney-destiny.html">Disney Destiny</a> &middot; <a href="/disney-adventure.html">Disney Adventure</a></p><p><a href="/viking-ships.html"><strong>Viking Ocean</strong></a>: <a href="/viking-star.html">Viking Star</a> &middot; <a href="/viking-sea.html">Viking Sea</a> &middot; <a href="/viking-sky.html">Viking Sky</a> &middot; <a href="/viking-sun.html">Viking Sun</a> &middot; <a href="/viking-orion.html">Viking Orion</a> &middot; <a href="/viking-jupiter.html">Viking Jupiter</a> &middot; <a href="/viking-venus.html">Viking Venus</a> &middot; <a href="/viking-mars.html">Viking Mars</a> &middot; <a href="/viking-neptune.html">Viking Neptune</a> &middot; <a href="/viking-saturn.html">Viking Saturn</a> &middot; <a href="/viking-vela.html">Viking Vela</a> &middot; <a href="/viking-vesta.html">Viking Vesta</a> &middot; <a href="/viking-mira.html">Viking Mira</a></p><p><a href="/cunard-ships.html"><strong>Cunard</strong></a>: <a href="/queen-mary-2.html">Queen Mary 2</a> &middot; <a href="/queen-victoria.html">Queen Victoria</a> &middot; <a href="/queen-elizabeth.html">Queen Elizabeth</a> &middot; <a href="/queen-anne.html">Queen Anne</a></p><p><a href="/costa-ships.html"><strong>Costa Cruises</strong></a>: <a href="/costa-serena.html">Costa Serena</a> &middot; <a href="/costa-pacifica.html">Costa Pacifica</a> &middot; <a href="/costa-deliziosa.html">Costa Deliziosa</a> &middot; <a href="/costa-favolosa.html">Costa Favolosa</a> &middot; <a href="/costa-fascinosa.html">Costa Fascinosa</a> &middot; <a href="/costa-diadema.html">Costa Diadema</a> &middot; <a href="/costa-smeralda.html">Costa Smeralda</a> &middot; <a href="/costa-toscana.html">Costa Toscana</a></p><p><a href="/virgin-voyages-ships.html"><strong>Virgin Voyages</strong></a>: <a href="/scarlet-lady.html">Scarlet Lady</a> &middot; <a href="/valiant-lady.html">Valiant Lady</a> &middot; <a href="/resilient-lady.html">Resilient Lady</a> &middot; <a href="/brilliant-lady.html">Brilliant Lady</a></p></nav><footer>Photos come from Wikimedia Commons and keep their authors' credits and licenses; each ship page links to the original. Ships without a freely licensed photo show a drawn silhouette scaled to tonnage. Cruising Knots is an independent project and is not affiliated with any cruise line. Mile totals are estimates. The tracking buttons open third-party websites. <a href="/about.html">About</a> &middot; <a href="/privacy.html">Privacy</a></footer>
+<nav aria-label="All ships" style="max-width:1100px;margin:0 auto;padding:0 16px 24px;font-size:.9rem"><h2 style="font-size:1rem">Ship pages by cruise line</h2><p><a href="/carnival-ships.html"><strong>Carnival Cruise Line</strong></a>: <a href="/carnival-elation.html">Carnival Elation</a> &middot; <a href="/carnival-paradise.html">Carnival Paradise</a> &middot; <a href="/carnival-sunshine.html">Carnival Sunshine</a> &middot; <a href="/carnival-sunrise.html">Carnival Sunrise</a> &middot; <a href="/carnival-radiance.html">Carnival Radiance</a> &middot; <a href="/carnival-spirit.html">Carnival Spirit</a> &middot; <a href="/carnival-pride.html">Carnival Pride</a> &middot; <a href="/carnival-legend.html">Carnival Legend</a> &middot; <a href="/carnival-miracle.html">Carnival Miracle</a> &middot; <a href="/carnival-conquest.html">Carnival Conquest</a> &middot; <a href="/carnival-glory.html">Carnival Glory</a> &middot; <a href="/carnival-valor.html">Carnival Valor</a> &middot; <a href="/carnival-liberty.html">Carnival Liberty</a> &middot; <a href="/carnival-freedom.html">Carnival Freedom</a> &middot; <a href="/carnival-splendor.html">Carnival Splendor</a> &middot; <a href="/carnival-dream.html">Carnival Dream</a> &middot; <a href="/carnival-magic.html">Carnival Magic</a> &middot; <a href="/carnival-breeze.html">Carnival Breeze</a> &middot; <a href="/carnival-vista.html">Carnival Vista</a> &middot; <a href="/carnival-horizon.html">Carnival Horizon</a> &middot; <a href="/carnival-panorama.html">Carnival Panorama</a> &middot; <a href="/carnival-venezia.html">Carnival Venezia</a> &middot; <a href="/carnival-firenze.html">Carnival Firenze</a> &middot; <a href="/mardi-gras.html">Mardi Gras</a> &middot; <a href="/carnival-celebration.html">Carnival Celebration</a> &middot; <a href="/carnival-jubilee.html">Carnival Jubilee</a> &middot; <a href="/carnival-luminosa.html">Carnival Luminosa</a> &middot; <a href="/carnival-adventure.html">Carnival Adventure</a> &middot; <a href="/carnival-encounter.html">Carnival Encounter</a></p><p><a href="/royal-caribbean-ships.html"><strong>Royal Caribbean</strong></a>: <a href="/grandeur-of-the-seas.html">Grandeur of the Seas</a> &middot; <a href="/enchantment-of-the-seas.html">Enchantment of the Seas</a> &middot; <a href="/rhapsody-of-the-seas.html">Rhapsody of the Seas</a> &middot; <a href="/vision-of-the-seas.html">Vision of the Seas</a> &middot; <a href="/voyager-of-the-seas.html">Voyager of the Seas</a> &middot; <a href="/explorer-of-the-seas.html">Explorer of the Seas</a> &middot; <a href="/adventure-of-the-seas.html">Adventure of the Seas</a> &middot; <a href="/navigator-of-the-seas.html">Navigator of the Seas</a> &middot; <a href="/mariner-of-the-seas.html">Mariner of the Seas</a> &middot; <a href="/radiance-of-the-seas.html">Radiance of the Seas</a> &middot; <a href="/brilliance-of-the-seas.html">Brilliance of the Seas</a> &middot; <a href="/serenade-of-the-seas.html">Serenade of the Seas</a> &middot; <a href="/jewel-of-the-seas.html">Jewel of the Seas</a> &middot; <a href="/freedom-of-the-seas.html">Freedom of the Seas</a> &middot; <a href="/liberty-of-the-seas.html">Liberty of the Seas</a> &middot; <a href="/independence-of-the-seas.html">Independence of the Seas</a> &middot; <a href="/oasis-of-the-seas.html">Oasis of the Seas</a> &middot; <a href="/allure-of-the-seas.html">Allure of the Seas</a> &middot; <a href="/harmony-of-the-seas.html">Harmony of the Seas</a> &middot; <a href="/symphony-of-the-seas.html">Symphony of the Seas</a> &middot; <a href="/wonder-of-the-seas.html">Wonder of the Seas</a> &middot; <a href="/utopia-of-the-seas.html">Utopia of the Seas</a> &middot; <a href="/quantum-of-the-seas.html">Quantum of the Seas</a> &middot; <a href="/anthem-of-the-seas.html">Anthem of the Seas</a> &middot; <a href="/ovation-of-the-seas.html">Ovation of the Seas</a> &middot; <a href="/spectrum-of-the-seas.html">Spectrum of the Seas</a> &middot; <a href="/odyssey-of-the-seas.html">Odyssey of the Seas</a> &middot; <a href="/icon-of-the-seas.html">Icon of the Seas</a> &middot; <a href="/star-of-the-seas.html">Star of the Seas</a> &middot; <a href="/legend-of-the-seas-2026.html">Legend of the Seas (2026)</a></p><p><a href="/norwegian-ships.html"><strong>Norwegian Cruise Line</strong></a>: <a href="/norwegian-spirit.html">Norwegian Spirit</a> &middot; <a href="/norwegian-sun.html">Norwegian Sun</a> &middot; <a href="/norwegian-star.html">Norwegian Star</a> &middot; <a href="/norwegian-dawn.html">Norwegian Dawn</a> &middot; <a href="/pride-of-america.html">Pride of America</a> &middot; <a href="/norwegian-jewel.html">Norwegian Jewel</a> &middot; <a href="/norwegian-jade.html">Norwegian Jade</a> &middot; <a href="/norwegian-pearl.html">Norwegian Pearl</a> &middot; <a href="/norwegian-gem.html">Norwegian Gem</a> &middot; <a href="/norwegian-epic.html">Norwegian Epic</a> &middot; <a href="/norwegian-breakaway.html">Norwegian Breakaway</a> &middot; <a href="/norwegian-getaway.html">Norwegian Getaway</a> &middot; <a href="/norwegian-escape.html">Norwegian Escape</a> &middot; <a href="/norwegian-joy.html">Norwegian Joy</a> &middot; <a href="/norwegian-bliss.html">Norwegian Bliss</a> &middot; <a href="/norwegian-encore.html">Norwegian Encore</a> &middot; <a href="/norwegian-prima.html">Norwegian Prima</a> &middot; <a href="/norwegian-viva.html">Norwegian Viva</a> &middot; <a href="/norwegian-aqua.html">Norwegian Aqua</a> &middot; <a href="/norwegian-luna.html">Norwegian Luna</a></p><p><a href="/msc-cruises-ships.html"><strong>MSC Cruises</strong></a>: <a href="/msc-lirica.html">MSC Lirica</a> &middot; <a href="/msc-opera.html">MSC Opera</a> &middot; <a href="/msc-armonia.html">MSC Armonia</a> &middot; <a href="/msc-sinfonia.html">MSC Sinfonia</a> &middot; <a href="/msc-musica.html">MSC Musica</a> &middot; <a href="/msc-orchestra.html">MSC Orchestra</a> &middot; <a href="/msc-poesia.html">MSC Poesia</a> &middot; <a href="/msc-magnifica.html">MSC Magnifica</a> &middot; <a href="/msc-fantasia.html">MSC Fantasia</a> &middot; <a href="/msc-splendida.html">MSC Splendida</a> &middot; <a href="/msc-divina.html">MSC Divina</a> &middot; <a href="/msc-preziosa.html">MSC Preziosa</a> &middot; <a href="/msc-meraviglia.html">MSC Meraviglia</a> &middot; <a href="/msc-seaside.html">MSC Seaside</a> &middot; <a href="/msc-seaview.html">MSC Seaview</a> &middot; <a href="/msc-bellissima.html">MSC Bellissima</a> &middot; <a href="/msc-grandiosa.html">MSC Grandiosa</a> &middot; <a href="/msc-seashore.html">MSC Seashore</a> &middot; <a href="/msc-virtuosa.html">MSC Virtuosa</a> &middot; <a href="/msc-seascape.html">MSC Seascape</a> &middot; <a href="/msc-world-europa.html">MSC World Europa</a> &middot; <a href="/msc-euribia.html">MSC Euribia</a> &middot; <a href="/msc-world-america.html">MSC World America</a></p><p><a href="/princess-ships.html"><strong>Princess Cruises</strong></a>: <a href="/grand-princess.html">Grand Princess</a> &middot; <a href="/coral-princess.html">Coral Princess</a> &middot; <a href="/island-princess.html">Island Princess</a> &middot; <a href="/diamond-princess.html">Diamond Princess</a> &middot; <a href="/sapphire-princess.html">Sapphire Princess</a> &middot; <a href="/caribbean-princess.html">Caribbean Princess</a> &middot; <a href="/crown-princess.html">Crown Princess</a> &middot; <a href="/emerald-princess.html">Emerald Princess</a> &middot; <a href="/ruby-princess.html">Ruby Princess</a> &middot; <a href="/royal-princess.html">Royal Princess</a> &middot; <a href="/regal-princess.html">Regal Princess</a> &middot; <a href="/majestic-princess.html">Majestic Princess</a> &middot; <a href="/sky-princess.html">Sky Princess</a> &middot; <a href="/enchanted-princess.html">Enchanted Princess</a> &middot; <a href="/discovery-princess.html">Discovery Princess</a> &middot; <a href="/sun-princess.html">Sun Princess</a> &middot; <a href="/star-princess.html">Star Princess</a></p><p><a href="/celebrity-ships.html"><strong>Celebrity Cruises</strong></a>: <a href="/celebrity-millennium.html">Celebrity Millennium</a> &middot; <a href="/celebrity-infinity.html">Celebrity Infinity</a> &middot; <a href="/celebrity-summit.html">Celebrity Summit</a> &middot; <a href="/celebrity-constellation.html">Celebrity Constellation</a> &middot; <a href="/celebrity-solstice.html">Celebrity Solstice</a> &middot; <a href="/celebrity-equinox.html">Celebrity Equinox</a> &middot; <a href="/celebrity-eclipse.html">Celebrity Eclipse</a> &middot; <a href="/celebrity-silhouette.html">Celebrity Silhouette</a> &middot; <a href="/celebrity-reflection.html">Celebrity Reflection</a> &middot; <a href="/celebrity-edge.html">Celebrity Edge</a> &middot; <a href="/celebrity-flora.html">Celebrity Flora</a> &middot; <a href="/celebrity-apex.html">Celebrity Apex</a> &middot; <a href="/celebrity-beyond.html">Celebrity Beyond</a> &middot; <a href="/celebrity-ascent.html">Celebrity Ascent</a> &middot; <a href="/celebrity-xcel.html">Celebrity Xcel</a></p><p><a href="/holland-america-ships.html"><strong>Holland America Line</strong></a>: <a href="/volendam.html">Volendam</a> &middot; <a href="/zaandam.html">Zaandam</a> &middot; <a href="/zuiderdam.html">Zuiderdam</a> &middot; <a href="/oosterdam.html">Oosterdam</a> &middot; <a href="/westerdam.html">Westerdam</a> &middot; <a href="/noordam.html">Noordam</a> &middot; <a href="/eurodam.html">Eurodam</a> &middot; <a href="/nieuw-amsterdam.html">Nieuw Amsterdam</a> &middot; <a href="/koningsdam.html">Koningsdam</a> &middot; <a href="/nieuw-statendam.html">Nieuw Statendam</a> &middot; <a href="/rotterdam.html">Rotterdam</a></p><p><a href="/disney-ships.html"><strong>Disney Cruise Line</strong></a>: <a href="/disney-magic.html">Disney Magic</a> &middot; <a href="/disney-wonder.html">Disney Wonder</a> &middot; <a href="/disney-dream.html">Disney Dream</a> &middot; <a href="/disney-fantasy.html">Disney Fantasy</a> &middot; <a href="/disney-wish.html">Disney Wish</a> &middot; <a href="/disney-treasure.html">Disney Treasure</a> &middot; <a href="/disney-destiny.html">Disney Destiny</a> &middot; <a href="/disney-adventure.html">Disney Adventure</a></p><p><a href="/viking-ships.html"><strong>Viking Ocean</strong></a>: <a href="/viking-star.html">Viking Star</a> &middot; <a href="/viking-sea.html">Viking Sea</a> &middot; <a href="/viking-sky.html">Viking Sky</a> &middot; <a href="/viking-sun.html">Viking Sun</a> &middot; <a href="/viking-orion.html">Viking Orion</a> &middot; <a href="/viking-jupiter.html">Viking Jupiter</a> &middot; <a href="/viking-venus.html">Viking Venus</a> &middot; <a href="/viking-mars.html">Viking Mars</a> &middot; <a href="/viking-neptune.html">Viking Neptune</a> &middot; <a href="/viking-saturn.html">Viking Saturn</a> &middot; <a href="/viking-vela.html">Viking Vela</a> &middot; <a href="/viking-vesta.html">Viking Vesta</a> &middot; <a href="/viking-mira.html">Viking Mira</a></p><p><a href="/cunard-ships.html"><strong>Cunard</strong></a>: <a href="/queen-mary-2.html">Queen Mary 2</a> &middot; <a href="/queen-victoria.html">Queen Victoria</a> &middot; <a href="/queen-elizabeth.html">Queen Elizabeth</a> &middot; <a href="/queen-anne.html">Queen Anne</a></p><p><a href="/costa-ships.html"><strong>Costa Cruises</strong></a>: <a href="/costa-serena.html">Costa Serena</a> &middot; <a href="/costa-pacifica.html">Costa Pacifica</a> &middot; <a href="/costa-deliziosa.html">Costa Deliziosa</a> &middot; <a href="/costa-favolosa.html">Costa Favolosa</a> &middot; <a href="/costa-fascinosa.html">Costa Fascinosa</a> &middot; <a href="/costa-diadema.html">Costa Diadema</a> &middot; <a href="/costa-smeralda.html">Costa Smeralda</a> &middot; <a href="/costa-toscana.html">Costa Toscana</a></p><p><a href="/virgin-voyages-ships.html"><strong>Virgin Voyages</strong></a>: <a href="/scarlet-lady.html">Scarlet Lady</a> &middot; <a href="/valiant-lady.html">Valiant Lady</a> &middot; <a href="/resilient-lady.html">Resilient Lady</a> &middot; <a href="/brilliant-lady.html">Brilliant Lady</a></p></nav><footer><nav aria-label="Site pages"><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="#method">Method</a></nav><p>Photos come from Wikimedia Commons and keep their authors' credits and licenses; each ship page links to the original. Ships without a freely licensed photo show a drawn silhouette scaled to tonnage. Cruising Knots is an independent project and is not affiliated with any cruise line. Mile totals are estimates. The tracking buttons open third-party websites.</p></footer>
 </div>
 <div id="sheetbg" class="sheet-bg" hidden><div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="st"></div></div>
 <script>
